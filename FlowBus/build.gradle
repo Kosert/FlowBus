@@ -5,7 +5,7 @@ plugins {
 }
 
 group = 'com.github.kosert'
-version = '0.1'
+version = '1.0'
 
 publishing {
     publications {

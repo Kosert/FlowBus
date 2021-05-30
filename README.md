@@ -58,10 +58,10 @@ In your module's `build.gradle`:
 ```gradle
 dependencies {
     // core package:
-    implementation 'com.github.Kosert.FlowBus:FlowBus:v0.2'
+    implementation 'com.github.Kosert.FlowBus:FlowBus:1.0'
     
     // android extensions:
-    implementation 'com.github.Kosert.FlowBus:FlowBus-android:v0.2'
+    implementation 'com.github.Kosert.FlowBus:FlowBus-android:1.0'
 }
 ```
 
