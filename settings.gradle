@@ -1,0 +1,4 @@
+rootProject.name = "FlowBus"
+include ':app'
+include ':FlowBus'
+include ':FlowBus-android'
