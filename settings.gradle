@@ -1,4 +1,4 @@
-rootProject.name = "FlowBus"
+rootProject.name = "FlowBusProject"
 
 if (!System.env.JITPACK)
     include ':app'
