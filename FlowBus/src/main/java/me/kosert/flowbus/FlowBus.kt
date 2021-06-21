@@ -1,5 +1,6 @@
 package me.kosert.flowbus
 
+import kotlinx.coroutines.*
 import kotlinx.coroutines.flow.*
 
 /**
@@ -38,13 +39,18 @@ open class FlowBus {
      */
     @JvmOverloads
     fun <T : Any> post(event: T, retain: Boolean = true) {
-        val channel = forEvent(event.javaClass)
-        channel.tryEmit(event).also {
+        val flow = forEvent(event.javaClass)
+        flow.tryEmit(event).also {
             if (!it)
                 throw IllegalStateException("StateFlow cannot take element, this should never happen")
         }
-        if (!retain)
-            dropEvent(event.javaClass)
+        if (!retain) {
+            // without starting a coroutine here, the event is dropped immediately
+            // and not delivered to subscribers
+            CoroutineScope(Job() + Dispatchers.Unconfined).launch {
+                dropEvent(event.javaClass)
+            }
+        }
     }
 
     /**
