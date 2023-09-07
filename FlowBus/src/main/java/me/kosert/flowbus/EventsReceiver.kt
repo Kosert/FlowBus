@@ -43,8 +43,7 @@ open class EventsReceiver @JvmOverloads constructor(
         callback: suspend (event: T) -> Unit
     ): EventsReceiver {
 
-        if (jobs.containsKey(clazz))
-            throw IllegalArgumentException("Already subscribed for event type: $clazz")
+        if (jobs.containsKey(clazz)) return this
 
         val exceptionHandler = CoroutineExceptionHandler { _, throwable ->
             throw throwable

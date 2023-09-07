@@ -46,7 +46,9 @@ dependencies {
 
     implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.5.0'
     implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.5.0'
+    implementation project(path: ':FlowBus-android')
+    implementation project(path: ':FlowBus')
 
-    implementation 'com.github.Kosert.FlowBus:FlowBus:1.1'
-    implementation 'com.github.Kosert.FlowBus:FlowBus-android:1.1'
+    // implementation 'com.github.Kosert.FlowBus:FlowBus:1.1'
+    // implementation 'com.github.Kosert.FlowBus:FlowBus-android:1.1'
 }

@@ -2,6 +2,7 @@ package me.kosert.flowbus.sample
 
 import android.annotation.SuppressLint
 import android.os.Bundle
+import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
@@ -22,6 +23,10 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
         RandomNumberProvider.init()
+
+        receiver.subscribe { event: RandomNumberEvent ->
+            Log.i("RandomNumberEvent", "Value from EventFlow is ${event.number}")
+        }
 
         binding.buttonTest.setOnClickListener {
             lifecycleScope.launch {
